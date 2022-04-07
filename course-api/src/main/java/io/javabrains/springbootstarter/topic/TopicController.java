@@ -33,5 +33,15 @@ public class TopicController {
 		return "Topic created";
 		
 	}
+	
+	@RequestMapping(method=RequestMethod.PUT,value= "/topics/{id}")
+	public String updateTopic(@RequestBody Topic topic, @PathVariable String id) {
+		return topoicservice.updateTopic(id,topic);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE,value= "/topics/{id}")
+	public String deleteTopic(@PathVariable String id) {
+		return topoicservice.deleteTopic(id);
+	}
 
 }

@@ -26,4 +26,24 @@ public class TopoicService {
 		topics.add(topic);
 	}
 
+	public String updateTopic(String id, Topic topic) {
+		 for(int i=0;i<topics.size();i++)
+		 {
+			 Topic t = topics.get(i);
+			 if(t.getId().equals(id)){
+				 topics.set(i,topic);
+				 return "Updated Topic";
+			 }
+			 
+		 }
+		 
+		 return "No corresponding topic Found";
+	}
+
+	public String deleteTopic(String id) {
+		topics.removeIf(t->t.getId().equals(id));
+		return "Topic Deleted";
+		
+	}
+
 }
